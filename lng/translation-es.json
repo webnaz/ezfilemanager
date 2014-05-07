@@ -1,0 +1,64 @@
+{
+ "_Translated by" : "Arturo Climent, www.gf-sistemas.com.mx",
+  "nav": {
+    "home": "Inicio",
+    "upload": "Cargar",
+    "new-folder": "Nueva carpeta"
+  },
+  "dropdown": {
+    "download": "Descargar",
+    "delete": "Eliminar",
+    "copy": "Copiar",
+    "rename": "Renombrar"
+  },
+   "btn": {
+    "logout": "Salir",
+    "paste": "Pegar"
+  },
+  "login": {
+    "pleasesignin": "Favor de registrarse",
+    "signin": "Registrese"
+  },
+   "form": {
+    "Tip": "Sugerencia",
+    "confirmFile": "Confirme que desea eliminarlo",
+    "confirmAll": "Confirme que desea eliminar los Archivos/Directorios seleccionados",
+    "fileDownload": "Espere por favor, preparándose para realizar la descarga",
+    "fileCopy": "esta ahora listo para copiar",
+    "createFolder": "Creando archivo(s)",
+    "createFolderTip": "Para crear mas de una carpeta, escriba el nombre de cada carpeta en una nueva línea.",
+    "uploadFiles": "Subiendo archivos(s)",
+    "uploadFilesTip": "Puedes seleccionar uno o más archivos, máximo =",
+    "browseFiles": "Seleccionar",
+    "selectedFiles": "archivos seleccionados",
+    "allowedFiles": "Tipo de archivos permitidos",
+    "allowedChars": "Caracteres permitidos",
+    "allowedSpace": "Espacios también son permitidos.",
+    "allowedCharsHelp": "Pueden utilizarse caracteres alfanuméricos, guiones y signo de menos.",
+    "maxSize": "Tamaño y Número máximo de archivos",
+    "maxSizeHelp1": "El tamaño total de archivos no debe ser mayor a",
+    "maxSizeHelp2": "El número total de archivos no debe ser mayor a",
+    "maxSizeHelp3": "de lo contrario fallará la carga del archivo",
+    "deleteFiles": "Confirme que desea eliminar los registros seleccionados"
+  },
+    "error": {
+    "openFolder": "No puede abrirse",
+    "removeFile": "No puede borrarse",
+    "pasteError": "No puede copiarse",
+    "pasteEmptyError": "Nada que copiar",
+    "createError": "No puede crearse:",
+    "emptycreateError": "Línea vacía",
+    "writeError": "La carpeta no permite escritura",
+    "emptyError": "Nada que mostrar",
+    "toomanyError": "se permite seleccionar",
+    "invalidError": "Archivo inválido",
+    "nothingError": "No se ha seleccionado nada!"
+  },
+   "type": {
+    "Files": "Archivos",
+    "allFiles": "Todos los archivos",
+    "imageFiles": "Archivos de imágenes",
+    "mediaFiles": "Archivos de audio/video",
+    "otherFiles": "Otros archivos"
+  }
+}

@@ -3,9 +3,9 @@ session_start();
 error_reporting(E_ALL);//Change to error_reporting(0) for live sites
 define('CONFIF_FILE', pathinfo(__FILE__, PATHINFO_BASENAME)); // The name of THIS file
 define('EZ_VERSION','ezFilemanager v3.0 RC');
-define('LANG','en');//en,nl,de see lng folder
-define('USER_FOLDER','uploads/');//for multiuser directories, implementation is up to you, trailing slash required
-define('UPLOAD_FOLDER','demo'.'/'.USER_FOLDER);//upload directory relative to your document root directory, no trailing slash
+define('LANG','en');//en,es,el see lng folder
+define('USER_FOLDER','');//for multiuser directories, implementation is up to you, trailing slash required
+define('UPLOAD_FOLDER',''.'/'.USER_FOLDER);//upload directory relative to your document root directory, no trailing slash
 define('ENABLE_NEW_DIR',true);//allow new dir creation  (true/false)
 define('PRESERVE_CASE',false);//If false, new files/dirs will be converted to lowercase
 define('REMOVE_SPACE',true);//Remove space from file/folder names
@@ -23,7 +23,7 @@ define('PREVIEW_WIDTH',150);//Files with more than xxx width or height, will be 
 define('KB','KiB');//KiB or Kb http://en.wikipedia.org/wiki/Kibibyte
 define('MB','MB');//MiB or MB http://en.wikipedia.org/wiki/Kibibyte
 define('INDEX_FOLDERS','index.html');//empty/filename, if "filename", "filename" will be created in new directories
-define('DEBUG_MODE',false);//basic debuging for some variables
+define('DEBUG_MODE',true);//basic debuging for some variables
 define('CHECK_IF_WRITABLE',true);//allow file copy  (true/false)   
 define('FILE_TYPES','all,image,media,file');//Do not change
 define('PATH_BLOCK_CHARS','/[;\\\\\\.&,:$><]/i');//no need to modify unless you know what you are doing
