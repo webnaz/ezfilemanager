@@ -3,7 +3,7 @@ session_start();
 error_reporting(E_ALL);//Change to error_reporting(0) for live sites
 define('CONFIF_FILE', pathinfo(__FILE__, PATHINFO_BASENAME)); // The name of THIS file
 define('EZ_VERSION','ezFilemanager v3.0 RC');
-define('LANG','en');//en,nl,de see lng folder
+define('LANG','en');//en,es,el lng folder
 define('USER_FOLDER','');//for multiuser directories, implementation is up to you, trailing slash required
 define('UPLOAD_FOLDER',''.'/'.USER_FOLDER);//upload directory relative to your document root directory, no trailing slash
 define('ENABLE_NEW_DIR',true);//allow new dir creation  (true/false)
