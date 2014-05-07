@@ -1,0 +1,223 @@
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+body{
+    background: #fff;
+    color:#333;
+}
+a{
+	color: #333;
+        text-decoration: none;
+}
+
+a:hover {
+	text-decoration:none; /*underline;*/
+	
+	color: #164787;
+
+}
+/*content container*/
+.container {
+  width: auto;
+  max-width: 1000px;
+  padding: 0 15px;
+}
+/*home table*/
+.table-home{
+    margin-top:0px;
+    border-top: 0px;
+}
+.breadcrumb {
+padding: 8px 15px;
+margin-bottom: 0px;
+}
+/*tabs background*/
+.nav-tabs {
+ border: 1px solid #e3e3e3;
+border-radius: 4px;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+box-shadow: inset 0 1px 1px rgba(0,0,0,0.05); 
+background: #F9F9F9;
+}
+
+#tab-content{
+    border: 1px solid #eee;
+    border-top: 0px solid #eee;
+    padding: 0px 0px;
+}
+#upload-pane, #folder-pane{
+    padding: 5px;
+}
+#response{
+    height:40px;
+}
+.response {
+padding: 2px;
+margin-bottom: 0px;
+}
+#actions-options{
+position:absolute;
+}
+#preview{
+width:150px;
+position:absolute;
+}
+.preview{
+    cursor: pointer
+
+}
+.writable{margin-bottom:0px;display: none;}
+.bottom-0{margin-bottom:0px;}
+/* Inline Edit*/
+form.editable{
+width:150px !important;
+float:left;
+}
+.editable button {
+
+  height: 25px;
+  color: #333;
+background-color: #ebebeb;
+border: 1px solid #adadad;
+font-size: 12px;
+line-height: 1.5;
+display: inline-block;
+margin-right: 2px;
+font-size: 14px;
+font-weight: normal;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+background-image: none;
+border-radius: 4px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+
+}
+.editable button:hover {
+  background-color: #F9F9F9;
+border-color: #adadad;
+}
+.editable input {
+  color: #333;
+  height: 25px !important;
+  padding:5px;
+  width:150px !important;
+  border: 1px solid #adadad;
+}
+
+/*Notifications*/
+.message{
+    display: none;
+    max-width: 568px;
+    text-align: center;
+    -webkit-background-size: 40px 40px;
+    -moz-background-size: 40px 40px;
+    background-size: 40px 40px;			
+    background-image: -webkit-gradient(linear, left top, right bottom,
+	color-stop(.25, rgba(255, 255, 255, .05)), color-stop(.25, transparent),
+	color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .05)),
+	color-stop(.75, rgba(255, 255, 255, .05)), color-stop(.75, transparent),
+	to(transparent));
+    background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+	transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+	transparent 75%, transparent);
+    background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+	transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+	transparent 75%, transparent);
+    background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+	transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+	transparent 75%, transparent);
+    background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+	transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+	transparent 75%, transparent);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+	transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+	 transparent 75%, transparent);
+						    
+    -moz-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
+    -webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);		
+    box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
+    border: 1px solid;
+    color: #fff;
+    padding: 5px;
+    position: fixed;
+    _position: absolute;
+    text-shadow: 0 1px 0 rgba(0,0,0,.5);
+    -webkit-animation: animate-bg 5s linear infinite;
+    -moz-animation: animate-bg 5s linear infinite;
+    z-index: 10000;
+}
+
+.errormsg{
+    background-color: #de4343;
+    border-color: #c43d3d;
+}
+		 
+.successmsg{
+    background-color: #61b832;
+    border-color: #55a12c;
+}
+.message h4{
+    margin: 0 0 5px 0;													 
+}
+
+.message p{
+    margin: 0;													 
+}
+@-webkit-keyframes animate-bg
+{
+    from {
+        background-position: 0 0;
+    }
+    to {
+       background-position: -80px 0;
+    }
+}
+
+
+@-moz-keyframes animate-bg 
+{
+    from {
+        background-position: 0 0;
+    }
+    to {
+       background-position: -80px 0;
+    }
+}
+.red{color: #ff0000}
+.orrange{color: #fa0}
+.green{color: #116D34}
+.allowed-files{margin-bottom:5px; padding:5px 10px}
+/*************
+ *upload
+ **************/
+
+.btn-file {
+		    position: relative;
+		    overflow: hidden;
+		}
+		.btn-file input[type=file] {
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    min-width: 100%;
+		    min-height: 100%;
+		    font-size: 999px;
+		    text-align: right;
+		    filter: alpha(opacity=0);
+		    opacity: 0;
+		    background: red;
+		    cursor: inherit;
+		    display: block;
+		}
+		input[readonly] {
+			background-color: white !important;
+			cursor: text !important;
+		}

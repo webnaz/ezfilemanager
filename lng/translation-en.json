@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Home",
+    "upload": "Upload",
+    "new-folder": "New Folder"
+  },
+  "dropdown": {
+    "download": "Downlaod",
+    "delete": "Delete",
+    "copy": "Copy",
+    "rename": "Rename"
+  },
+   "btn": {
+    "logout": "Logout",
+    "paste": "Paste"
+  },
+  "login": {
+    "pleasesignin": "Please sign in",
+    "signin": "Sign in"
+  },
+   "form": {
+    "Tip": "Tip",
+    "confirmFile": "Are you sure you want to permanently delete",
+    "confirmAll": "Do you really want to Delete Selected  Files/Directories?",
+    "fileDownload": "Please wait, preparing to download",
+    "fileCopy": "is now ready to paste",
+    "createFolder": "Create Folder(s)",
+    "createFolderTip": "To create more than one folder, type each folder name in a new line.",
+    "uploadFiles": "Upload File(s)",
+    "uploadFilesTip": "You can select one or more files, Maximum =",
+    "browseFiles": "Browse",
+    "selectedFiles": "files selected",
+    "allowedFiles": "Allowed Files",
+    "allowedChars": "Allowed Characters",
+    "allowedSpace": "Spaces are allowed also.",
+    "allowedCharsHelp": "You are allowed to use alphanumeric, underscore and minus characters only.",
+    "maxSize": "Maximum File(s) Size & Number",
+    "maxSizeHelp1": "Total size of the files should not be more than",
+    "maxSizeHelp2": "Total number of the files should not be more than",
+    "maxSizeHelp3": "otherwise file upload will fail",
+    "deleteFiles": "Do you really want to permanently Delete the Selected Records?"
+  },
+    "error": {
+    "openFolder": "Unable to open",
+    "removeFile": "Unable to delete",
+    "pasteError": "Unable to paste",
+    "pasteEmptyError": "Nothing to paste",
+    "createError": "Unable to create:",
+    "emptycreateError": "Empty line",
+    "writeError": "The folder is not writable",
+    "emptyError": "Nothing to Display",
+    "toomanyError": "allowed to select",
+    "invalidError": "Invalid File",
+    "nothingError": "You have not selected anything!"
+  },
+   "type": {
+    "Files": "Files",
+    "allFiles": "All Files",
+    "imageFiles": "Image Files",
+    "mediaFiles": "Media Files",
+    "otherFiles": "Other Files"
+  }
+}
