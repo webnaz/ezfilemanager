@@ -11,12 +11,13 @@
                 </span>
                 <input type="text" class="form-control" value='' readonly>
             </div>
-            <span class="help-block"><span  data-i18n="form.uploadFilesTip"></span> <span><strong><?php echo MAX_FILES_UPLOAD ?></strong></span> <span  data-i18n="type.Files"></span><br /><span data-i18n="form.maxSizeHelp1"></span> <strong><?php echo MAX_UPLOAD_SIZE ?></strong><br /></span>
+            <span class="help-block"><span  data-i18n="form.uploadFilesTip"></span> <span><strong><?php echo $ezf->helper_bytestostring(MAX_UPLOAD_SIZE) ?></strong></span> <span  data-i18n="type.Files"></span><br /><span data-i18n="form.maxSizeHelp1"></span> <strong><?php echo MAX_UPLOAD_SIZE ?></strong><br /></span>
 
             <button type="submit" class="btn btn-default btn-sm">
                 <span class="glyphicon glyphicon-folder-close"></span>
                 <span data-i18n='form.uploadFiles'></span>
             </button>
+            <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_UPLOAD_SIZE ?>" />
         </form>
         <div id="upload_files" class='alert alert-info'></div>
     </div>
@@ -31,7 +32,7 @@
         <div class="alert alert-info allowed-files"><strong><span data-i18n="type.otherFiles"></span></strong> 
         <?php echo preg_replace('/(?<!\w),|,(?!\d{3})/', ', ', OTHER_FILES); ?></div>
          <h4 class="bottom-0"><span data-i18n="form.maxSize"></span></h4>
-        <div class="alert alert-danger allowed-files"><span data-i18n="form.maxSizeHelp1"></span> <strong><?php echo MAX_UPLOAD_SIZE ?></strong><br />
+        <div class="alert alert-danger allowed-files"><span data-i18n="form.maxSizeHelp1"></span> <strong><?php echo $ezf->helper_bytestostring(MAX_UPLOAD_SIZE) ?></strong><br />
         <span data-i18n="form.maxSizeHelp2"></span> <strong><?php echo MAX_FILES_UPLOAD ?></strong><br />
         <span data-i18n="form.maxSizeHelp3"></span></div>
     </div>

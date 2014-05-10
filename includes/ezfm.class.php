@@ -492,13 +492,13 @@ function helper_do_write_check($dir_to_check) {
 */
 function helper_maximum_upload_size(){
     if (CUSTOM_MAX_UPLOAD_SIZE){
-    define('MAX_UPLOAD_SIZE',$this->helper_bytestostring(CUSTOM_MAX_UPLOAD_SIZE));
+    define('MAX_UPLOAD_SIZE',$this->helper_return_bytes(CUSTOM_MAX_UPLOAD_SIZE));
     }else{
         if (!ini_get('upload_max_filesize'))
         {
         die('Cannot autoset upload_max_filesize, please enter CUSTOM_MAX_UPLOAD_SIZE value in config.inc.php');
         }else{
-        define('MAX_UPLOAD_SIZE',$this->helper_bytestostring($this->helper_return_bytes(ini_get('upload_max_filesize'))));
+        define('MAX_UPLOAD_SIZE',$this->helper_return_bytes(ini_get('upload_max_filesize')));
         }
     }
 }
@@ -507,18 +507,28 @@ function helper_maximum_upload_size(){
 * Read php.ini settings e.g. ini_get('upload_max_filesize')
 * and convert to bytes
 */
-function helper_return_bytes($val) {
-    $this->val = trim($val);
-    $this->last = strtolower($this->val[strlen($this->val)-1]);
-        switch($this->last) {
-        case 'g':
-            $this->val *= 1024;
-        case 'm':
-            $this->val *= 1024;
-        case 'k':
-            $this->val *= 1024;
+function helper_return_bytes($value) {
+   if ( is_numeric( $value ) ) {
+        return $value;
+    } else {
+        $value_length = strlen( $value );
+        $qty = substr( $value, 0, $value_length - 1 );
+        $unit = strtolower( substr( $value, $value_length - 1 ) );
+
+        switch ($unit) {
+            case 'k':
+                 $qty = ($qty*1024);
+                break;
+            case 'm':
+                 $qty = ($qty *1048576);
+               
+                break;
+            case 'g':
+                $qty = ($qty*1073741824);
+                break;
+        }
+       return $qty;
     }
-    return $this->val;
 }
 
 }// end Helper class
@@ -793,37 +803,48 @@ function ezf_actions(){
                 $canUpload = 0;
                 $errorMsg = '';
         foreach($_FILES["filetoupload"]["error"] as $key => $value) {
-            if ($value == UPLOAD_ERR_OK){
-                $succeedNum++;
-                $name = $_FILES["filetoupload"]["name"][$key];
-                $newfilename = $this->helper_preserve_case($name);
+            $name = $_FILES["filetoupload"]["name"][$key];
+             $newfilename = $this->helper_preserve_case($name);
                 $extension = $this->helper_get_extension($newfilename);
                 $strippedName = $this->helper_strip_extension($newfilename);
                 $newfilename = $this->helper_set_newname($strippedName, '.'.$extension);
                 
                 $file = $this->helper_strip_extension($newfilename);
                 $this->ezfilemanager= $this->helper_file_extensions();
-                if(in_array($extension, $this->ezfilemanager['filetype']['all'])){
-                    $canUpload=1;
-                }else{
-                    $canUpload=0;
-                    $errorNum++;
-                    $errorMsg .= '<tr class="danger"><td style="width:10px"></td><td style="width:10px"></td><td style="width:10px"><span class="glyphicon glyphicon-warning-sign"></span></td><td>'.$name.'</td><td><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;'.$extension.'</td><td></td></tr>';
-                }
-                
-                if ($canUpload==1){
-                if (copy($_FILES['filetoupload']['tmp_name'][$key], UPLOAD_FOLDER_PATH.$newfilename)){
+                if(!in_array($extension, $this->ezfilemanager['filetype']['all'])){
+                $value = 'UPLOAD_ERR_MIME_TYPE';     
+                    }
+            
+             $file_size = @filesize($_FILES['filetoupload']['tmp_name'][$key]);
+                    if (!$file_size || $file_size > MAX_UPLOAD_SIZE) {
+                $value = UPLOAD_ERR_FORM_SIZE;      
+                    }
+                    
+            switch ($value) {
+        case UPLOAD_ERR_OK:
+            $succeedNum++;
+             if (copy($_FILES['filetoupload']['tmp_name'][$key], UPLOAD_FOLDER_PATH.$newfilename)){
                 $successMsg .= '<tr class="success" id="tr_c'.$succeedNum.'"><td style="width:10px"><input type="checkbox" id="record_c'.$succeedNum.'" value="'.$newfilename.'" class="del" name="_del[c'.$succeedNum.']" alt="c'.$succeedNum.'"></td><td style="width:10px"><a href="#" id="insert_c'.$succeedNum.'" alt="'.$newfilename.'" class="insert"><span class="glyphicon glyphicon-import"></span></a></td><td style="width:10px"><a id="c'.$succeedNum.'" class="ajaxdelete"  alt="folder" href="#"><span class="glyphicon glyphicon-trash"></span></a></td><td><span id="edit_c'.$succeedNum.'" alt="c'.$succeedNum.'">'.$file.'</span><span id="ext_c'.$succeedNum.'">.'.$extension.'</span></td><td></td><td></td></tr>';
                 }else{
                    $errorNum++;
                    $errorMsg .= '<tr class="danger"><td style="width:10px"></td><td style="width:10px"></td><td style="width:10px"><span class="glyphicon glyphicon-warning-sign"></span></td><td>'.$name.'</td><td></td><td></td></tr>';
                 } //if copy
-                } //end can uploadif copy
-        }
-        else{
-            $errorNumr++;
-            $errorMsg .= '<tr class="danger"><td style="width:10px"></td><td style="width:10px"></td><td style="width:10px"><span class="glyphicon glyphicon-warning-sign"></span></td><td>'.$name.'</td><td></td><td></td></tr>';
-        }
+            break;
+        case 'UPLOAD_ERR_MIME_TYPE':
+           $errorMsg .= '<tr class="danger"><td style="width:10px"></td><td style="width:10px"></td><td style="width:10px"><span class="glyphicon glyphicon-warning-sign"></span></td><td>'.$name.'</td><td nowrap><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;'.$extension.'</td><td></td></tr>';
+             break;
+        
+        case UPLOAD_ERR_FORM_SIZE:
+            $errorMsg .= '<tr class="danger"><td style="width:10px"></td><td style="width:10px"></td><td style="width:10px"><span class="glyphicon glyphicon-warning-sign"></span></td><td>'.$name.'</td><td nowrap><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp; > '.$this->helper_bytestostring(MAX_UPLOAD_SIZE).'</td><td></td></tr>';
+             break;
+            
+        case UPLOAD_ERR_NO_FILE:
+             $errorMsg .= '<tr class="danger"><td style="width:10px"></td><td style="width:10px"></td><td style="width:10px"><span class="glyphicon glyphicon-warning-sign"></span></td><td>No file</td><td></td><td></td></tr>';
+         break;
+        default:
+            $errorMsg .= '<tr class="danger"><td style="width:10px"></td><td style="width:10px"></td><td style="width:10px"><span class="glyphicon glyphicon-warning-sign"></span></td><td>Unknown error</td><td></td><td></td></tr>';
+    }
+
     }
 
         
