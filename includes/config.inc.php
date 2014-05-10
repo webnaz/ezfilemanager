@@ -5,7 +5,8 @@ define('CONFIF_FILE', pathinfo(__FILE__, PATHINFO_BASENAME)); // The name of THI
 define('EZ_VERSION','ezFilemanager v3.0 RC');
 define('LANG','en');//en,es,el lng folder
 define('USER_FOLDER','');//for multiuser directories, implementation is up to you, trailing slash required
-define('UPLOAD_FOLDER',''.'/'.USER_FOLDER);//upload directory relative to your document root directory, no trailing slash
+define('UPLOAD_FOLDER',''.'/'.USER_FOLDER);//upload directory relative to your site's root directory, no trailing slash
+define('ROOT_ACCESS',true);//if UPLOAD_FOLDER is not set you will be able to browse your  site's root directory
 define('ENABLE_NEW_DIR',true);//allow new dir creation  (true/false)
 define('PRESERVE_CASE',false);//If false, new files/dirs will be converted to lowercase
 define('REMOVE_SPACE',true);//Remove space from file/folder names

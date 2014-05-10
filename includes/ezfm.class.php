@@ -257,6 +257,11 @@ function helper_strip_extension($file){
  * Redirect if browsing outside of UPLOAD folder
  ************************/
 function helper_redirect_onhack(){
+    
+    //if UPLOAD_FOLDER is not set and ROOT_ACCESS=false
+    if (UPLOAD_FOLDER =='/' &&  USER_FOLDER =='' &&  !ROOT_ACCESS){
+         exit('folder-error: No direct script access allowed');
+    }
     //dissalowed chars in path
     if (preg_match(PATH_BLOCK_CHARS, $_GET['folder']) > 0) {
         header('Refresh: 0;url='.INDEX.'?folder='.UPLOAD_FOLDER.'&type=all');
