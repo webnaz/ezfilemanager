@@ -1,6 +1,6 @@
 <strong>Description</strong><br />
 An online file management utility, using PHP and jQuery. It can be installed as stand-alone file management system, as text input field plugin or Integrated with TinyMCE as Plugin with build in simple Authentication method.<br /><br />
-<strong>Demo</strong><br /><a href="http://demo.webnaz.net">demo.webnaz.net</a><br /><br />
+<strong>Demo</strong><br /><a href="http://ezfm.webnaz.net" target="_blank">ezfm.webnaz.net</a><br /><br />
 <strong>Installation</strong><br />Copy the ezFilemanager folder and contents to your TinyMCE plugins directory.
 <ol>
 <li><strong>Stand alone installation</strong><br />Open config.inc.php and edit configuration, mainly the UPLOAD_FOLDER.<br />For security reasons enable password prottection and change the username/password<br />Just point your browser to the ezfilemanager folder</li>
