@@ -1,25 +1,25 @@
 {
-    "_Translated by" : "Naz, www.webnaz.net",
-    "nav": {
+  "_Translated by" : "Naz, www.webnaz.net",
+  "nav": {
     "home" : "Αρχική",
     "upload" : "Μεταφόρτωση",
     "new-folder" : "Νέος φάκελος"
   },
- "dropdown": {
+  "dropdown": {
     "download" : "Λήψη",
     "delete" : "Διαγραφή",
     "copy" : "Αντιγραφή",
     "rename" : "Μετονομασία"
   },
- "btn": {
+  "btn": {
     "logout" : "Έξοδος",
     "paste" : "Επικόλληση"
   },
- "login": {
+  "login": {
     "pleasesignin" : "Παρακαλώ συνδεθείτε",
     "signin" : "Σύνδεση"
   },
- "form": {
+  "form": {
     "Tip" : "Tip",
     "confirmFile" : "Είστε σίγουροι ότι θέλετε να διαγράψετε οριστικά",
     "confirmAll" : "Θέλετε πραγματικά να διαγράψετε τα επιλεγμένα αρχεία / καταλόγους ;",
@@ -41,7 +41,7 @@
     "maxSizeHelp3" : "αλλιώς η Μεταφόρτωση θα αποτύχει",
     "deleteFiles" : "Θέλετε πραγματικά να διαγράψετε μόνιμα τα επιλεγμένα αρχεία;"
   },
- "error": {
+  "error": {
     "openFolder" : "Αδυναμία ανοίγματος",
     "removeFile" : "Δεν είναι δυνατή η διαγραφή",
     "pasteError" : "Δεν είναι δυνατή η επικόλληση",
@@ -52,10 +52,11 @@
     "emptyError" : "Nothing to Display",
     "toomanyError" : "επιτρέπεται να επιλέξετε",
     "invalidError" : "Μη έγκυρο αρχείο",
+    "tooLargeError": "Αυτό το αρχείο είναι πολύ μεγάλο για να ανεβάσετε",
     "nothingError" : "Δεν έχετε επιλέξει τίποτα!"
 },
- "type": {
-     "Files" : "Αρχεία",
+  "type": {
+    "Files" : "Αρχεία",
     "allFiles" : "Όλα τα αρχεία",
     "imageFiles" : "Αρχεία εικόνας",
     "mediafiles" : "Αρχεία Media",

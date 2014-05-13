@@ -357,7 +357,7 @@ function get_mimetype($value='') {
         $this->ct['rtf'] = 'text/rtf';
         $this->ct['wml'] = 'text/vnd.wap.wml';
         $this->ct['wmls'] = 'text/vnd.wap.wmlscript';
-        $this->ct['xsl'] = 'text/xml';
+        $this->ct['xsl'] = 'text/xsl';
         $this->ct['xml'] = 'text/xml';
         $this->extension = $this->helper_get_extension($value);
         if (!$this->type = $this->ct[$this->extension]) {
@@ -816,7 +816,7 @@ function ezf_actions(){
                     }
             
              $file_size = @filesize($_FILES['filetoupload']['tmp_name'][$key]);
-                    if (!$file_size || $file_size > MAX_UPLOAD_SIZE) {
+                    if ($file_size > MAX_UPLOAD_SIZE) {
                 $value = UPLOAD_ERR_FORM_SIZE;      
                     }
                     

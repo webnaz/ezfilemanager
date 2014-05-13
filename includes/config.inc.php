@@ -24,7 +24,7 @@ define('PREVIEW_WIDTH',150);//Files with more than xxx width or height, will be 
 define('KB','KiB');//KiB or Kb http://en.wikipedia.org/wiki/Kibibyte
 define('MB','MB');//MiB or MB http://en.wikipedia.org/wiki/Kibibyte
 define('INDEX_FOLDERS','index.html');//empty/filename, if "filename", "filename" will be created in new directories
-define('DEBUG_MODE',false);//basic debuging for some variables
+define('DEBUG_TRUE',false);//basic debuging for some variables
 define('CHECK_IF_WRITABLE',true);//allow file copy  (true/false)   
 define('FILE_TYPES','all,image,media,file');//Do not change
 define('PATH_BLOCK_CHARS','/[;\\\\\\.&,:$><]/i');//no need to modify unless you know what you are doing

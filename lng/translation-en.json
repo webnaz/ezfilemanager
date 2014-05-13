@@ -52,6 +52,7 @@
     "emptyError": "Nothing to Display",
     "toomanyError": "allowed to select",
     "invalidError": "Invalid File",
+    "tooLargeError": "This file is too large to upload",
     "nothingError": "You have not selected anything!"
   },
    "type": {

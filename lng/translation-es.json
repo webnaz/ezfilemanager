@@ -5,7 +5,7 @@
     "upload": "Cargar",
     "new-folder": "Nueva carpeta"
   },
-  "dropdown": {
+  "dropdown": { 
     "download": "Descargar",
     "delete": "Eliminar",
     "copy": "Copiar",
@@ -52,6 +52,7 @@
     "emptyError": "Nada que mostrar",
     "toomanyError": "se permite seleccionar",
     "invalidError": "Archivo inválido",
+    "tooLargeError": "Este archivo es demasiado grande para cargar",
     "nothingError": "No se ha seleccionado nada!"
   },
    "type": {

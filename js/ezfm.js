@@ -114,6 +114,7 @@ hideNotifications();
         nothingError = t("error.nothingError");
         toomanyError = t("error.toomanyError");
         invalidError = t("error.invalidError");
+        tooLargeError = t("error.tooLargeError");
     });
 
 
@@ -274,7 +275,7 @@ $("a.download").click(function(event){
     $('.successmsg').html('<h4>'+fileDownload+' '+file_name+file_extension+'</h4>' );
     jQuery('.successmsg').show();
     $('.successmsg').animate({top:"0"}, 500);
-    setTimeout(function(){hideNotifications()},1500);
+    setTimeout(function(){hideNotifications()},3000);
     window.location.href =location.protocol + '//' + location.host + location.pathname+'?folder='+folder+'&action=download&file='+file_name+file_extension;               
     if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
 });
@@ -291,7 +292,7 @@ $("a.copy").click(function(event){
     $('.successmsg').html('<h4>'+file_name+file_extension+' '+fileCopy+'</h4>' );
     jQuery('.successmsg').show();
     $('.successmsg').animate({top:"0"}, 500);
-    setTimeout(function(){hideNotifications()},1500);
+    setTimeout(function(){hideNotifications()},3000);
     $.ajax({
         type:"POST",
         url: indexFile+"?folder="+folder+"&action=copy",
@@ -327,7 +328,7 @@ function doPaste(){
                 $('.errormsg').html('<h4>'+ pasteEmptyError+'</h4>' );
                 jQuery('.errormsg').show();
                 $('.errormsg').animate({top:"0"}, 500);
-                setTimeout(function(){hideNotifications()},1500);
+                setTimeout(function(){hideNotifications()},3000);
             }else{
                 y++;
                 var data_array = data.split(".");
@@ -552,22 +553,37 @@ $( "#uploadForm" ).submit(function( event ) {
     if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; };
     var multi = $(".filetoupload").val();
     var files = $('#filetoupload')[0].files;
+    
     if (files.length > maxFileUpload) {
          hideNotifications();
                 $('.errormsg').html('<h4>'+files.length+' '+ selectedFiles+': '+maxFileUpload+' '+toomanyError+'</h4>' );
                 jQuery('.errormsg').show();
                 $('.errormsg').animate({top:"0"}, 500);
-                setTimeout(function(){hideNotifications()},1500);
+                setTimeout(function(){hideNotifications()},3000);
        return false;   
     }
     for (var i = 0; i < files.length; i++) {
+         var filesMimeType = files[i].type.split("/");
+         console.log(files[i].name, files[i].type, files[i].size, filesMimeType[1]);
+         //check extension
         if(!valid_extensions.test(files[i].name))
         { 
             hideNotifications();
                 $('.errormsg').html('<h4>'+files[i].name+' '+ invalidError+'</h4>' );
                 jQuery('.errormsg').show();
                 $('.errormsg').animate({top:"0"}, 500);
-                setTimeout(function(){hideNotifications()},1500);
+                setTimeout(function(){hideNotifications()},3000);
+        return false;
+        }
+        
+        //check size
+        if(files[i].size > maxFileSize)
+        { 
+            hideNotifications();
+                $('.errormsg').html('<h4>'+files[i].name+' '+ tooLargeError+'</h4>' );
+                jQuery('.errormsg').show();
+                $('.errormsg').animate({top:"0"}, 500);
+                setTimeout(function(){hideNotifications()},3000);
         return false;
         }
     }
@@ -696,7 +712,7 @@ $(function() {
                 $('.errormsg').html('<h4>'+ nothingError+'</h4>' );
                 jQuery('.errormsg').show();
                 $('.errormsg').animate({top:"0"}, 500);
-                setTimeout(function(){hideNotifications()},1500);
+                setTimeout(function(){hideNotifications()},3000);
                 return false;
             }
         }
