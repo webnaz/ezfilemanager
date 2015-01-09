@@ -1,0 +1,65 @@
+{
+  "_Translated by" : "Pippo Fresta, www.studiofresta.com",
+  "nav": {
+    "home": "Home",
+    "upload": "Upload",
+    "new-folder": "Nuova Cartella"
+  },
+  "dropdown": {
+    "download": "Download",
+    "delete": "Cancella",
+    "copy": "Copia",
+    "rename": "Rinomina"
+  },
+   "btn": {
+    "logout": "Logout",
+    "paste": "Incolla"
+  },
+  "login": {
+    "pleasesignin": "Effettuare il login",
+    "signin": "login"
+  },
+   "form": {
+    "Tip": "Consiglio",
+    "confirmFile": "Sei sicuro di cancellare in modo permanente?",
+    "confirmAll": "Confermi la cancellazione?",
+    "fileDownload": "Attendere prego, il download è in preparazione",
+    "fileCopy": "Adesso è possibile incollare",
+    "createFolder": "Creazione cartella(e)",
+    "createFolderTip": "Per creare più di una cartella, digita il nome di ogni cartella su una nuova linea",
+    "uploadFiles": "Upload File(s)",
+    "uploadFilesTip": "E' possibile selezionare uno o più files, Maximum =",
+    "browseFiles": "Browse",
+    "selectedFiles": "Files selezionati",
+    "allowedFiles": "Files permessi",
+    "allowedChars": "Caratteri permessi",
+    "allowedSpace": "Gli spazi sono ammessi.",
+    "allowedCharsHelp": "E' possibile utilizzare esclusivamente caratteri alfanumerci, underscore_ e segno-",
+    "maxSize": "Massima dimensione File(s) & Number",
+    "maxSizeHelp1": "La dimensione totale dei file non può essere maggiore di",
+    "maxSizeHelp2": "Il numero totale dei files non può essere maggiore di",
+    "maxSizeHelp3": "altrimenti l'upload fallirà",
+    "deleteFiles": "Vuoi davvero rimuovere permanentemente i Records selezionati?"
+  },
+    "error": {
+    "openFolder": "Impossibile aprire",
+    "removeFile": "Impossibile cancellare",
+    "pasteError": "Impossibile incollare",
+    "pasteEmptyError": "Niente da incollare",
+    "createError": "Impossibile creare",
+    "emptycreateError": "Linea vuota",
+    "writeError": "La cartella non è scrivibile",
+    "emptyError": "Niente da mostrare",
+    "toomanyError": "Impossibile proseguire con l'operazione",
+    "invalidError": "File invalido",
+    "tooLargeError": "Questo file è troppo grande per l'upload",
+    "nothingError": "Nessuna selezione!"
+  },
+   "type": {
+    "Files": "Files",
+    "allFiles": "Tutti i Files",
+    "imageFiles": "Image Files",
+    "mediaFiles": "Media Files",
+    "otherFiles": "Altri Files"
+  }
+}
