@@ -5,7 +5,7 @@ define('CONFIF_FILE', pathinfo(__FILE__, PATHINFO_BASENAME)); // The name of THI
 define('EZ_VERSION','ezFilemanager v3.0');
 define('LANG','en');//en,es,el lng folder
 define('USER_FOLDER','');//for multiuser directories, implementation is up to you, trailing slash required
-define('UPLOAD_FOLDER',''.'/'.USER_FOLDER);//upload directory relative to your site's root directory, no trailing slash
+define('UPLOAD_FOLDER','nuggetz/uploads'.'/'.USER_FOLDER);//upload directory relative to your site's root directory, no trailing slash
 define('ROOT_ACCESS',false);//if UPLOAD_FOLDER is not set you will be able to browse your  site's root directory
 define('ENABLE_NEW_DIR',true);//allow new dir creation  (true/false)
 define('PRESERVE_CASE',false);//If false, new files/dirs will be converted to lowercase
@@ -18,7 +18,7 @@ define('ENABLE_COPY',true);//allow file copy  (true/false)
 define('HIDDEN_FILES','index.html');// hide files from filebrowser, seperated with comma, e.g DIR_INDEXING file or home.html,default.php
 define('DATE_FORMAT','M d Y H:i');//http://php.net/manual/en/function.date.php
 define('IMAGE_FILES','jpg,jpeg,png,gif');//allowed image files extensions
-define('MEDIA_FILES','swf,flv,mp3,mp4,mov,avi,mpg,qt');//allowed meadia files extensions
+define('MEDIA_FILES','swf,flv,mp3,mp4,mov,avi,mpg,qt,ogg,ogv,webm');//allowed meadia files extensions
 define('OTHER_FILES','htm,html,css,pdf,ppt,txt,doc,docx,rtf,xml,xsl,dtd,zip,rar.tar');//allowed other files extensions
 define('PREVIEW_WIDTH',150);//Files with more than xxx width or height, will be resized proportionally
 define('KB','KiB');//KiB or Kb http://en.wikipedia.org/wiki/Kibibyte
@@ -28,18 +28,15 @@ define('DEBUG_MODE',false);//basic debuging for some variables
 define('CHECK_IF_WRITABLE',true);//allow file copy  (true/false)   
 define('FILE_TYPES','all,image,media,file');//Do not change
 define('PATH_BLOCK_CHARS','/[;\\\\\\.&,:$><]/i');//no need to modify unless you know what you are doing
+define('USE_JS_REDIRECT',true);//Enable javascript bredirect if headers error (true/false)
 define('PASSWORD_PROTECTED',true);//Enable authentication (true/false)
-define('AUTHENTICATION_SESSION_NAME','user_id');//Session name to use
+define('COOKIE_NAME','user_login');//Cookie name to use
+define('COOKIE_DURATION', 0);  /* 0=expire on close browser, 3600= expire  in 1 hour, 86400= expire  in 1 day*/
 define('USER','root@localhost'); //Username
 define('PASSWORD','demo');//Password
-if (PASSWORD_PROTECTED &&  empty($_SESSION[AUTHENTICATION_SESSION_NAME]) ){
- include('login.php');
-exit;
-    
-}
 /* Config: ezFilemanager - file manager platform for TinyMCE or stand-alone
  * Copyright (c) Nazaret Armenagian (Naz)
  * Project home: http://www.webnaz.net
- * Version: 3.0 RC
+ * Version: 3.0 FINAL
 */
 ?>

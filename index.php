@@ -1,7 +1,11 @@
-﻿<?php
+<?php
 include("includes/config.inc.php");
-include("includes/ezfm.class.php");
+if (PASSWORD_PROTECTED && !isset($_COOKIE[COOKIE_NAME])) {
+     header('Location: login.php');
+     exit;
+}
 define('INDEX', pathinfo(__FILE__, PATHINFO_BASENAME)); // The name of THIS file
+include("includes/ezfm.class.php");
 $ezf = new ezFilemanager();
 $ezf->ezfm_init();
 ?>

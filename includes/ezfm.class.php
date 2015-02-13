@@ -9,7 +9,8 @@
 class ezHelpers {
     function __construct() {
         if(isset($_GET['logout'])){
-            $_SESSION[AUTHENTICATION_SESSION_NAME] = false;
+           setcookie(COOKIE_NAME, "", 1, "/");
+           $this->helper_js_redirect("login.php");
         }
    }
 /**************************
@@ -264,13 +265,15 @@ function helper_redirect_onhack(){
     }
     //dissalowed chars in path
     if (preg_match(PATH_BLOCK_CHARS, $_GET['folder']) > 0) {
-        header('Refresh: 0;url='.INDEX.'?folder='.UPLOAD_FOLDER.'&type=all');
+        $redirect =INDEX."?folder=".UPLOAD_FOLDER."&type=all";
+        $this->helper_js_redirect($redirect);
         exit();
     }
     
     //browsing outside of UPLOAD folder
     if (substr($_GET['folder'], 0, strlen(UPLOAD_FOLDER))!= UPLOAD_FOLDER){
-        header('Refresh: 0;url='.INDEX.'?folder='.UPLOAD_FOLDER.'&type=all');
+        $redirect =INDEX."?folder=".UPLOAD_FOLDER."&type=all";
+       $this->helper_js_redirect($redirect);
         exit();
     }
 }
@@ -530,6 +533,20 @@ function helper_return_bytes($value) {
        return $qty;
     }
 }
+/********
+* $Id: Use JS Redirect Naz $
+*/
+function helper_js_redirect($value) {
+    if (USE_JS_REDIRECT){
+echo "<script>";
+        echo "window.location = \"$value\"";        
+        echo "</script>";
+    }else{
+header('Refresh: 0;url='.$value.'');
+    }
+}
+
+
 
 }// end Helper class
 
@@ -606,7 +623,8 @@ function ezfm_init(){
         if (isset($_GET['type']) && $_GET['type'] !="")
         {$type=$_GET['type'];
         }
-         header('Refresh: 0;url='.INDEX.'?folder='.UPLOAD_FOLDER.'&type='.$type);
+        $redirect =INDEX."?folder=".UPLOAD_FOLDER."&type=".$type;
+         $this->helper_js_redirect($redirect);
         exit();
     }
 

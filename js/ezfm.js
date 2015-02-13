@@ -46,9 +46,10 @@ $(document).ready(function(){
 ***************************/
 $(function(){
     windowHeight=$(window).height()
-    homeHeight= windowHeight-170;
+    containerHeight= windowHeight-100;
+    console.log(containerHeight);;
     $('.pane-home').slimScroll({
-        height: homeHeight + 'px'
+        height: containerHeight + 'px'
     });
 });      
 /*****************************
@@ -751,10 +752,10 @@ $.fn.redraw = function(){
   $(this).each(function(){
     var redraw = this.offsetHeight;
      console.log('Repainting');
-         $(".pane-home").slimScroll({ scrollTo: '0px' });
+         
   });
 };
-$('.pane-home').redraw();
+$('.container').redraw();
 });//end Documnet ready
 
 

@@ -11,7 +11,7 @@
                 </span>
                 <input type="text" class="form-control" value='' readonly>
             </div>
-            <span class="help-block"><span  data-i18n="form.uploadFilesTip"></span> <span><strong><?php echo $ezf->helper_bytestostring(MAX_UPLOAD_SIZE) ?></strong></span> <span  data-i18n="type.Files"></span><br /><span data-i18n="form.maxSizeHelp1"></span> <strong><?php echo MAX_UPLOAD_SIZE ?></strong><br /></span>
+            <span class="help-block"><span  data-i18n="form.uploadFilesTip"></span> <span><strong><?php echo MAX_FILES_UPLOAD ?></strong></span> <span  data-i18n="type.Files"></span><br /><span data-i18n="form.maxSizeHelp1"></span> <strong><?php echo $ezf->helper_bytestostring(MAX_UPLOAD_SIZE); ?></strong><br /></span>
 
             <button type="submit" class="btn btn-default btn-sm">
                 <span class="glyphicon glyphicon-folder-close"></span>

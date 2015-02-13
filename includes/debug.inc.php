@@ -9,10 +9,5 @@
 <br />
 <?php echo "SESSION[\"type\"]= ".$_SESSION['type'] ?>
 <br />
-<?php echo "SESSION[".AUTHENTICATION_SESSION_NAME."]= ". $_SESSION[AUTHENTICATION_SESSION_NAME] ?>
-<br />
-
-<?php
-if (isset($_SESSION[AUTHENTICATION_SESSION_NAME]))
-echo "SESSION[".AUTHENTICATION_SESSION_NAME."]= AUTHENTICATION_SESSION_NAME is set"; ?>
+<?php echo "COOKIE[".COOKIE_NAME."]= ". $_COOKIE[COOKIE_NAME] ?>
 <br />
