@@ -1,4 +1,4 @@
-<?php if ( ! defined('CONFIF_FILE')) exit('No direct script access allowed');?>
+<?php if ( ! defined('CONFIG_FILE')) exit('No direct script access allowed');?>
 <?php
 /* PHP Class/Helper - file manager platform for TinyMCE or stand-alone
  * Copyright (c) Nazaret Armenagian (Naz)
@@ -581,6 +581,7 @@ function navigation_links(){
     define('FOLDER_NAME',$folder_name);
     return $ez_navigation;
 }
+
 /**************************
 * $Id: initialize ezFM 11-11-2013 Naz $
 * Set timezone, Find and define ABSOLUT_PATH 

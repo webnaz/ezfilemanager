@@ -1,10 +1,9 @@
 <?php
-include("includes/config.inc.php");
-if (PASSWORD_PROTECTED && !isset($_COOKIE[COOKIE_NAME])) {
-     header('Location: login.php');
-     exit;
-}
 define('INDEX', pathinfo(__FILE__, PATHINFO_BASENAME)); // The name of THIS file
+include("includes/config.inc.php");
+include("includes/ezfm_helper.php");
+check_login();
+FolderSet();
 include("includes/ezfm.class.php");
 $ezf = new ezFilemanager();
 $ezf->ezfm_init();
@@ -31,16 +30,16 @@ var imageArr =  '<?php echo json_encode(explode(",",IMAGE_FILES)); ?>';
 var DEBUG_MODE = '<?php echo DEBUG_MODE; ?>';
 var valid_extensions = <?php  echo "/(\.".str_replace(",", "|\.", ALLOWED_FILES).")$/i;";  ?>
 </script>
-<!-- jquery jquery-2.0.3.min.js not support for ie8-->
-<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+<!-- jquery jquery-2.xxx not support for ie8-->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <!-- Boostrap CDN-->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <!-- Jeditable-->
 <script type='text/javascript' src='js/jquery.jeditable.min.js?v=1.7.3'></script>
 <!-- ezFM-->
 <link  href="css/ezfm.css" rel="stylesheet" type="text/css" />
-<script type='text/javascript' src='js/ezfm.min.js'></script>
+<script type='text/javascript' src='js/ezfm.js'></script>
 <!-- Translation-->
 <script type='text/javascript' src='js/i18next-1.7.3.min.js'></script>
 <!-- Scroll-->
@@ -54,12 +53,16 @@ var valid_extensions = <?php  echo "/(\.".str_replace(",", "|\.", ALLOWED_FILES)
     <div class="container">
     <?php include('includes/notification.inc.php');?>
     <?php include('includes/dropdown.inc.php');?>
-
+<div class="row">
 <!-- Navigation -->
-<ol class="breadcrumb"><?php echo $ez_navigation=$ezf->navigation_links();?></ol>    
+    <div class="col-xs-12">
+        <ol class="breadcrumb"><?php echo $ez_navigation=$ezf->navigation_links();?></ol>
+    </div>
+
+</div>
 <div class="row">
 <!-- Left Column -->
-    <div class="col-lg-9 col-md-9  col-sm-9 col-xs-9">
+    <div class="col-xs-8">
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" id="ezfm-tab">
     <li><a href="#home-pane" data-toggle="tab" id="version-pane"></a></li>
@@ -74,20 +77,21 @@ var valid_extensions = <?php  echo "/(\.".str_replace(",", "|\.", ALLOWED_FILES)
 </ul>
     </div><!-- /left column -->
 <!-- Right Column -->
+<!-- Multi folder drop down -->
+    <div class="col-xs-2"><?php echo folder_links();?></div> 
+<!-- File type drop down -->
+<div class="col-xs-2">   
+    <select class="form-control"  id="type-control"  data-style="btn-inverse">
+        <option value='all' data-i18n='type.allFiles'></option>
+        <option value='image' data-i18n='type.imageFiles'<?php echo $_SESSION['type'] == 'image' ? ' selected="selected"' : '';?>></option>
+        <option value='media' data-i18n='type.mediaFiles'<?php echo $_SESSION['type'] == 'media' ? ' selected="selected"' : '';?>></option>
+        <option value='file' data-i18n='type.otherFiles'<?php echo $_SESSION['type'] == 'file' ? ' selected="selected"' : '';?>></option>
+    </select>     
+</div>
     
-         <div class="col-lg-3 col-md-3  col-sm-3 col-xs-3">   
-       <select class="form-control"  id="type-control"  data-style="btn-inverse">
-  <option value='all' data-i18n='type.allFiles'></option>
-  <option value='image' data-i18n='type.imageFiles'<?php echo $_SESSION['type'] == 'image' ? ' selected="selected"' : '';?>></option>
-  <option value='media' data-i18n='type.mediaFiles'<?php echo $_SESSION['type'] == 'media' ? ' selected="selected"' : '';?>></option>
-  <option value='file' data-i18n='type.otherFiles'<?php echo $_SESSION['type'] == 'file' ? ' selected="selected"' : '';?>></option>
-
-</select>     
-
-    </div>
     </div><!-- /row-->
 <div class="row">
-<div class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
+<div class="col-xs-12">
     <!-- Tab panes -->
         <div class="tab-content"  id="tab-content">
             <div class="tab-pane active" id="home-pane">

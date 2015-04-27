@@ -1,31 +1,7 @@
 <?php
 include("includes/config.inc.php");
-if(isset($_COOKIE[COOKIE_NAME])) {
-     echo "<script>";
-        echo "window.location = \"index.php?folder=".UPLOAD_FOLDER."\"";        
-        echo "</script>";
-}
-if(!isset($_POST['user'], $_POST['password']))
-{
-    $message = '';
-    setcookie(COOKIE_NAME, "", 1, "/");
-  }else{
-if ($_POST['user']==USER &&  $_POST['password']==PASSWORD){
-    $expire ="0";
-    if (COOKIE_DURATION){
-        $expire= time() + COOKIE_DURATION;
-    }
-  setcookie(COOKIE_NAME, "TRUE", $expire, "/");
-
-    echo "<script>";
-        echo "window.location = \"index.php?folder=".UPLOAD_FOLDER."\"";        
-        echo "</script>";
-
-}else{
-    $message = '<div class="alert alert-danger">Please enter a valid username and password</div>';
-}
-}
-
+include("includes/ezfm_helper.php");
+doLoginRoutine();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,13 +11,13 @@ if ($_POST['user']==USER &&  $_POST['password']==PASSWORD){
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="robots" content="NOINDEX,NOFOLLOW,NONE,NOARCHIVE" />
-<!-- jquery jquery-2.0.3.min.js not suppported by ie8-->
-<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+<!-- jquery jquery-2.xx not suppported by ie8-->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <!-- /jquery-->
 
 <!-- Boostrap-->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <!-- /Boostrap-->
 <!--[if lt IE 9]>
 <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

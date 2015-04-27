@@ -1,4 +1,4 @@
-<?php if ( ! defined('CONFIF_FILE')) exit('No direct script access allowed');?>
+<?php if ( ! defined('CONFIG_FILE')) exit('No direct script access allowed');?>
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
         <form action="" method="post" enctype="multipart/form-data" name="uploadForm" id="uploadForm">

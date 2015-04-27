@@ -1,4 +1,4 @@
-<?php if ( ! defined('CONFIF_FILE')) exit('No direct script access allowed');?>
+<?php if ( ! defined('CONFIG_FILE')) exit('No direct script access allowed');?>
 <?php
 $directory=$ezf->read_folder();
 ?>
