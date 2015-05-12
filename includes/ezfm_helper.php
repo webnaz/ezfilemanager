@@ -13,13 +13,17 @@ function check_login(){
 */
 function FolderSet(){
     $Folderarray=explode(",",FOLDER_ARRAY);
-    $nav_array=explode("/",$_GET['folder']);
-    $rootFolder=$nav_array[0];
-    if(isset($rootFolder) && in_array($rootFolder, $Folderarray)){
-        define('UPLOAD_FOLDER',''.$rootFolder.'/'.USER_FOLDER);//upload directory   
+    if (isset($_GET['folder'])){
+        $nav_array=explode("/",$_GET['folder']);
+        $rootFolder=$nav_array[0];
+        if(isset($rootFolder) && in_array($rootFolder, $Folderarray)){
+            define('UPLOAD_FOLDER',''.$rootFolder.'/'.USER_FOLDER);//upload directory   
+        }else{
+            define('UPLOAD_FOLDER',''.$Folderarray[0].'/'.USER_FOLDER);//upload directory   
+        }
     }else{
-        define('UPLOAD_FOLDER',''.$Folderarray[0].'/'.USER_FOLDER);//upload directory   
-    }
+        define('UPLOAD_FOLDER',''.$Folderarray[0].'/'.USER_FOLDER);//upload directory
+        }
 }
 
 
