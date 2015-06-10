@@ -1,7 +1,7 @@
 /* ezFilemanager - file manager platform for TinyMCE or stand-alone
  * Copyright (c) Nazaret Armenagian (Naz)
  * Project home: http://www.webnaz.net
-  * Version: 3.0 RC
+  * Version: 3.0
  */
 $(document).ready(function(){
     var confirmFile;
@@ -157,25 +157,25 @@ $('.preview').bind('mouseleave', function() {
  * DROPDOWN Click, Show tools drop down menu
 ***************************/
 $( document ).on( "click", "a.dropdown-actions", function(event) {
-    if(!$('.dropdown-menu').is(':visible'))
+    if(!$('.tools').is(':visible'))
     {
         var preview ="";
         var id = $(this).attr("id");
         var alt = $(this).attr("alt");
-        $('ul.dropdown-menu li:lt(2)').show();
-        if (alt=='folder'){$('ul.dropdown-menu li:lt(2)').hide();}
+        $('ul.toolsli:lt(2)').show();
+        if (alt=='folder'){$('ul.tools li:lt(2)').hide();}
         $('.download').attr("id",id);
         $('.download').attr("alt",alt);
         $('.filedelete').attr("id",id);
         $('.copy').attr("id",id);
         $('.rename').attr("id",id);
-        $( ".dropdown-menu" ).show();
-        menuHeight=$( ".dropdown-menu" ).height();
+        $( ".tools" ).show();
+        menuHeight=$( ".tools" ).height();
         $("#actions-options")
             .css("top",(event.pageY - menuHeight-yOffset) + "px")
             .css("left",(event.pageX - xOffset) + "px");
     }else{
-        $( ".dropdown-menu" ).hide()
+        $( ".tools" ).hide()
     }
     if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
 });
@@ -183,8 +183,8 @@ $( document ).on( "click", "a.dropdown-actions", function(event) {
 /*****************************
  * Hide Drop Down menu
 ***************************/
-$('.dropdown-menu').bind('mouseleave', function() {
-    $( ".dropdown-menu" ).hide();
+$('.tools').bind('mouseleave', function() {
+    $( ".tools" ).hide();
 });
  
 /*****************************
@@ -216,7 +216,7 @@ $( document ).on( "click", "a.insert", function(event) {
     console.log('Standalone mode');
     }
     }
-     $( ".dropdown-menu" ).hide();
+     $( ".tools" ).hide();
     if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
 });
 
@@ -244,7 +244,7 @@ $( document ).on( "click", "a.insert-plugin", function(event) {
   }
     
   
-    $( ".dropdown-menu" ).hide();
+    $( ".tools" ).hide();
     if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
 });
 /*****************************
@@ -271,7 +271,7 @@ $("a.download").click(function(event){
     id = $(this).attr("id");
     var file_extension =  $("#ext_"+id).text();
     var file_name = $("#edit_"+id).text();
-    $( ".dropdown-menu" ).hide();
+    $( ".tools" ).hide();
     hideNotifications();
     $('.successmsg').html('<h4>'+fileDownload+' '+file_name+file_extension+'</h4>' );
     jQuery('.successmsg').show();
@@ -288,7 +288,7 @@ $("a.copy").click(function(event){
     id = $(this).attr("id");
     var file_extension =  $("#ext_"+id).text();
     var file_name = $("#edit_"+id).text();
-    $( ".dropdown-menu" ).hide();
+     $( ".tools" ).hide();
     hideNotifications();
     $('.successmsg').html('<h4>'+file_name+file_extension+' '+fileCopy+'</h4>' );
     jQuery('.successmsg').show();
@@ -359,7 +359,7 @@ $( document ).on( "click", "a.rename", function(event) {
     $.post(indexFile+"?folder=" + folder + "&action=oldfilename", {"oldfilename": file_name, "extension": file_extension});
     $("#filetype-"+id).hide();
     $("#edit_"+id).trigger("rename");
-    $( ".dropdown-menu" ).hide();
+     $( ".tools" ).hide();
     if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }
 });
 
