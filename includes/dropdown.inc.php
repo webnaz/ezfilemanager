@@ -1,4 +1,4 @@
-<?php if ( ! defined('CONFIF_FILE')) exit('No direct script access allowed');?>
+<?php if ( ! defined('CONFIG_FILE')) exit('No direct script access allowed');?>
 <!-- Hidden drop down menu-->
 <div class="dropdown" id="actions-options">
     <ul class="dropdown-menu tools" role="menu">
