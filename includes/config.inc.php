@@ -19,7 +19,7 @@ define('HIDDEN_FILES','index.html');// hide files from filebrowser, seperated wi
 define('DATE_FORMAT','M d Y H:i');//http://php.net/manual/en/function.date.php
 define('IMAGE_FILES','jpg,jpeg,png,gif');//allowed image files extensions
 define('MEDIA_FILES','swf,flv,mp3,mp4,mov,avi,mpg,qt,ogg,ogv,webm');//allowed meadia files extensions
-define('OTHER_FILES','htm,html,css,pdf,ppt,txt,doc,docx,rtf,xml,xsl,dtd,zip,rar.tar');//allowed other files extensions
+define('OTHER_FILES','htm,html,css,pdf,ppt,txt,doc,docx,rtf,xml,xsl,dtd,zip,rar,tar');//allowed other files extensions
 define('PREVIEW_WIDTH',150);//Files with more than xxx width or height, will be resized proportionally
 define('KB','KiB');//KiB or Kb http://en.wikipedia.org/wiki/Kibibyte
 define('MB','MB');//MiB or MB http://en.wikipedia.org/wiki/Kibibyte
